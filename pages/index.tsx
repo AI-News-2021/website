@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import mimirLogoIcon from '../public/mimir_head.svg'
 import React from 'react'
-import NewsletterSignup from './components/NewsletterSignupForm/NewsletterSignup'
+import NewsletterSignup from '../components/NewsletterSignupForm/NewsletterSignup'
 
 const Home: NextPage = () => {
   return (

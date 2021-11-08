@@ -1,6 +1,6 @@
 import { Button, FormControl, InputAdornment, OutlinedInput, useMediaQuery } from '@mui/material';
 import React from 'react'
-import theme from '../../../theme';
+import theme from '../../theme';
 import { getClasses } from './NewsletterSignup.jss';
 
 const NewsletterSignup = () => {
@@ -23,7 +23,7 @@ const NewsletterSignup = () => {
                 )}
             />
             {isMobile ? (
-                <Button variant={'contained'} color={'primary'} disableElevation className={classes.signupButton}>Signup</Button>
+                <Button variant={'contained'} color={'primary'} className={classes.signupButton}>Signup</Button>
             ) : false}
         </FormControl>
         </div>
