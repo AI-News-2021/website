@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import mimirLogoIcon from '../public/mimir_head.svg'
 import React from 'react'
 import NewsletterSignup from '../components/NewsletterSignupForm/NewsletterSignup'
 
@@ -18,7 +17,7 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <div className={styles['logo-container']}>
           <div className={styles['logo-icon']}>
-            <Image src={mimirLogoIcon} alt={'Graphical illustration of the head of mimir, as the logo of Mimir News.'} width={'100%'} height={'100%'} layout={'responsive'} />
+            <Image src={'/mimir_head.svg'} alt={'Graphical illustration of the head of mimir, as the logo of Mimir News.'} width={'100%'} height={'100%'} layout={'responsive'} />
           </div>
           <div className={styles['logo-text']}>
             <Image src={'/mimir_name.png'} alt={'Mimir'} width={'100%'} height={'32%'} layout={'responsive'} />
