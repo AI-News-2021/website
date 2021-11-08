@@ -4,37 +4,6 @@
   font-family: 'Lora', serif;
 }
 
-.logo-container {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.logo-icon {
-  display: block;
-  width: 10vw;
-}
-
-.logo-text {
-  padding-top: 15px;
-  display: block;
-  width: 20vw;
-}
-
-.main {
-  min-height: 90vh;
-  padding: 4rem 0;
-}
-
-.signup-form-input {
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  width: 60%;
-}
-
 .content-container {
   display: flex;
   flex-direction: column;
@@ -58,26 +27,4 @@
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
-}
-
-
-
-@media only screen and (min-width: 0px) and (max-width: 450px) {
-  .logo-icon {
-    width: 40vw;
-  }
-
-  .logo-text {
-    width: 80vw;
-  }
-}
-
-@media only screen and (min-width: 451px) and (max-width: 1024px) {
-  .logo-icon {
-    width: 25vw;
-  }
-
-  .logo-text {
-    width: 60vw;
-  }
 }

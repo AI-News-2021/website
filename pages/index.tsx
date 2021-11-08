@@ -1,11 +1,13 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React from 'react'
 import NewsletterSignup from '../components/NewsletterSignupForm/NewsletterSignup'
+import LandingPageLogo from '../components/LandingPageLogo/LandingPageLogo'
+import { getClasses } from '../styles/IndexPage.jss'
 
 const Home: NextPage = () => {
+  const classes = getClasses()
   return (
     <div className={styles.container}>
       <Head>
@@ -14,15 +16,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <div className={styles['logo-container']}>
-          <div className={styles['logo-icon']}>
-            <Image src={'/mimir_logo_head.svg'} alt={'Graphical illustration of the head of mimir, as the logo of Mimir News.'} width={'100%'} height={'100%'} layout={'responsive'} />
-          </div>
-          <div className={styles['logo-text']}>
-            <Image src={'/mimir_logo_text.png'} alt={'Mimir'} width={'100%'} height={'32%'} layout={'responsive'} />
-          </div>
-        </div>
+      <main className={classes.main}>
+        <LandingPageLogo />
         <div className={styles['content-container']}>
           {/* Info text */}
           <p className={styles.infotext}>Let’s work together to create less division. Filling out this form will take less than one-minute, and will give us important product development information. The first 500 people to fill out the form will have access to our premium product for free, for life. Thank you very much.</p>
