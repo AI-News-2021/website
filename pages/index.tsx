@@ -17,10 +17,10 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <div className={styles['logo-container']}>
           <div className={styles['logo-icon']}>
-            <Image src={'/mimir_head.svg'} alt={'Graphical illustration of the head of mimir, as the logo of Mimir News.'} width={'100%'} height={'100%'} layout={'responsive'} />
+            <Image src={'/mimir_logo_head.svg'} alt={'Graphical illustration of the head of mimir, as the logo of Mimir News.'} width={'100%'} height={'100%'} layout={'responsive'} />
           </div>
           <div className={styles['logo-text']}>
-            <Image src={'/mimir_name.png'} alt={'Mimir'} width={'100%'} height={'32%'} layout={'responsive'} />
+            <Image src={'/mimir_logo_text.png'} alt={'Mimir'} width={'100%'} height={'32%'} layout={'responsive'} />
           </div>
         </div>
         <div className={styles['content-container']}>
