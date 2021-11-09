@@ -55,7 +55,7 @@ const Home: NextPage = () => {
       </main>
 
       <footer className={styles.footer}>
-          Coming in 2023
+          Coming in 2022
       </footer>
     </div>
   )
