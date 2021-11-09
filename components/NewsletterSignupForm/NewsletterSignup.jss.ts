@@ -21,5 +21,10 @@ export const getClasses = makeStyles(({ breakpoints, palette }: Theme) => ({
             marginTop: '15px',
             width: '80vw'
         }
+    },
+    sucessMessage: {
+        fontSize: '1.4em',
+        fontWeight: 600,
+        textAlign: 'center'
     }
 }));

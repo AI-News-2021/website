@@ -23,7 +23,9 @@ const NewsletterSignup = () => {
 
     const handleSignupButtonClick = (evt: any) => {
         if(isEmail(state.email)) {
+            setState((currentState) => ({...currentState, hasError: false}))
             // TODO: Signup for newsletter and open survey
+            setState((currentState) => ({...currentState, isSuccessful: true}))
         } else {
             setState((currentState) => ({...currentState, hasError: true}))
         }
@@ -36,26 +38,30 @@ const NewsletterSignup = () => {
 
     return (
         <div className={classes.formContainer}>
-        <FormControl fullWidth variant="outlined">
-            <TextField
-                name="EMAIL"
-                placeholder='Enter your E-Mail'
-                className={classes.emailInput}
-                value={state.email}
-                onChange={onEmailChange}
-                error={state.hasError}
-                InputProps={{ 
-                    endAdornment: isMobile ? false : 
-                        (<InputAdornment position={'end'}>
-                            <Button variant={'contained'} color={'primary'} onClick={handleSignupButtonClick} disableElevation>Signup</Button>
-                        </InputAdornment>)
-                }}
-            />
-            {state.hasError ? <p className={classes.emailErrorMessage}>Please enter a valid E-Mail.</p> : ''}
-            {isMobile ? (
-                <Button variant={'contained'} color={'primary'} className={classes.signupButton} onClick={handleSignupButtonClick}>Signup</Button>
-            ) : false}
-        </FormControl>
+            {state.isSuccessful ? (
+                <p className={classes.sucessMessage}>Thank you for your support!</p>
+            ) : (
+                <FormControl fullWidth variant="outlined">
+                <TextField
+                    name="EMAIL"
+                    placeholder='Enter your E-Mail'
+                    className={classes.emailInput}
+                    value={state.email}
+                    onChange={onEmailChange}
+                    error={state.hasError}
+                    InputProps={{ 
+                        endAdornment: isMobile ? false : 
+                            (<InputAdornment position={'end'}>
+                                <Button variant={'contained'} color={'primary'} onClick={handleSignupButtonClick} disableElevation>Signup</Button>
+                            </InputAdornment>)
+                    }}
+                />
+                {state.hasError ? <p className={classes.emailErrorMessage}>Please enter a valid E-Mail.</p> : ''}
+                {isMobile ? (
+                    <Button variant={'contained'} color={'primary'} className={classes.signupButton} onClick={handleSignupButtonClick}>Signup</Button>
+                ) : false}
+            </FormControl>
+            )}
         </div>
     )
 }
