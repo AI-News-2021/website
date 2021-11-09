@@ -40,10 +40,10 @@ const Home: NextPage = () => {
 
       <main className={classes.main}>
         <LandingPageLogo />
-        <div className={styles['content-container']}>
+        <div className={classes.contentContainer}>
           {/* Info text */}
-          <p className={styles.infotext}>Mímir is a news application making use of proprietary artificial intelligence to deliver unfiltered news that is free of bias and based on fact.</p>
-          <p className={styles.infotext}>Let’s work together to create less division. Filling out this form will give us important product development information.</p>
+          <p className={classes.infoText}>Mímir is a news application making use of proprietary artificial intelligence to deliver unfiltered news that is free of bias and based on fact.</p>
+          <p className={classes.infoText}>Let’s work together to create less division. Filling out this form will give us important product development information.</p>
           {/* Signup form */}
           <NewsletterSignup onSuccess={handleSuccess} />
           <SurveyModal open={state.surveyModalOpen} handleClose={handleModalClose} />

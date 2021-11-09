@@ -4,21 +4,6 @@
   font-family: 'Lora', serif;
 }
 
-.content-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 8vh;
-  margin-left: 10vw;
-  margin-right: 10vw;
-}
-
-.infotext {
-  font-weight: 400;
-  text-align: center;
-}
-
 .footer {
   min-height: 10vh;
   display: flex;
