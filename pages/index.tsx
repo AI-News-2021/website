@@ -24,7 +24,7 @@ const Home: NextPage = () => {
     setState((currentState) => ({ ...currentState, surveyModalOpen: true }))
   }
 
-  const handleModalClose = (event: object, reason: string) => {
+  const handleModalClose = (event?: object, reason?: string) => {
     if((reason === 'backdropClick' && isMobile) || (reason !== 'backdropClick' && !isMobile)) {
       setState((currentState) => ({ ...currentState, surveyModalOpen: false }))
     }
@@ -42,7 +42,8 @@ const Home: NextPage = () => {
         <LandingPageLogo />
         <div className={styles['content-container']}>
           {/* Info text */}
-          <p className={styles.infotext}>Let’s work together to create less division. Filling out this form will take less than one-minute, and will give us important product development information. The first 500 people to fill out the form will have access to our premium product for free, for life. Thank you very much.</p>
+          <p className={styles.infotext}>Mímir is a news application making use of proprietary artificial intelligence to deliver unfiltered news that is free of bias and based on fact.</p>
+          <p className={styles.infotext}>Let’s work together to create less division. Filling out this form will give us important product development information.</p>
           {/* Signup form */}
           <NewsletterSignup onSuccess={handleSuccess} />
           <SurveyModal open={state.surveyModalOpen} handleClose={handleModalClose} />
