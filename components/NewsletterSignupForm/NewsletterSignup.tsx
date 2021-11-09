@@ -42,7 +42,6 @@ const NewsletterSignup = ({ onSuccess }: { onSuccess: () => void }) => {
             onSuccess()
         } else {
             setState((currentState) => ({...currentState, hasError: true}))
-            onSuccess()
         }
     }
 
