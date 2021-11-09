@@ -1,6 +1,7 @@
 import { Button, CircularProgress, FormControl, InputAdornment, TextField, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react'
 import { isEmail } from '../../functions/isEmail';
+import { useIsMobile } from '../../hooks/useIsMobile';
 import theme from '../../theme';
 import { getClasses } from './NewsletterSignup.jss';
 
@@ -11,9 +12,9 @@ interface INewsletterSignupState {
     email: string
 }
 
-const NewsletterSignup = () => {
+const NewsletterSignup = ({ onSuccess }: { onSuccess: () => void }) => {
     const classes = getClasses();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+    const isMobile = useIsMobile()
 
     const [state, setState] = useState<INewsletterSignupState>({
         hasError: false,
@@ -38,8 +39,10 @@ const NewsletterSignup = () => {
 
             const { error } = await res.json();
             setState((currentState) => ({...currentState, isSuccessful: true, isLoading: false }))
+            onSuccess()
         } else {
             setState((currentState) => ({...currentState, hasError: true}))
+            onSuccess()
         }
     }
 

@@ -1,13 +1,35 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import React from 'react'
+import React, { useState } from 'react'
 import NewsletterSignup from '../components/NewsletterSignupForm/NewsletterSignup'
 import LandingPageLogo from '../components/LandingPageLogo/LandingPageLogo'
 import { getClasses } from '../styles/IndexPage.jss'
+import SurveyModal from '../components/SurveyModal/SurveyModal'
+import { useIsMobile } from '../hooks/useIsMobile'
+
+interface IIndexPageState {
+  surveyModalOpen: boolean
+}
 
 const Home: NextPage = () => {
   const classes = getClasses()
+  const isMobile = useIsMobile()
+
+  const [state, setState] = useState<IIndexPageState>({
+    surveyModalOpen: false
+  })
+
+  const handleSuccess = () => {
+    setState((currentState) => ({ ...currentState, surveyModalOpen: true }))
+  }
+
+  const handleModalClose = (event: object, reason: string) => {
+    if((reason === 'backdropClick' && isMobile) || (reason !== 'backdropClick' && !isMobile)) {
+      setState((currentState) => ({ ...currentState, surveyModalOpen: false }))
+    }
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -22,7 +44,8 @@ const Home: NextPage = () => {
           {/* Info text */}
           <p className={styles.infotext}>Let’s work together to create less division. Filling out this form will take less than one-minute, and will give us important product development information. The first 500 people to fill out the form will have access to our premium product for free, for life. Thank you very much.</p>
           {/* Signup form */}
-          <NewsletterSignup />
+          <NewsletterSignup onSuccess={handleSuccess} />
+          <SurveyModal open={state.surveyModalOpen} handleClose={handleModalClose} />
         </div>
       </main>
 
