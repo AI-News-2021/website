@@ -4,7 +4,6 @@ import { ThemeProvider } from '@mui/material/styles'
 import theme from '../theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log(theme)
   return (
     <ThemeProvider theme={theme}>
       <Component {...pageProps} />

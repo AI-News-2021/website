@@ -1,7 +1,7 @@
 import { Theme } from "@mui/material/styles";
 import { makeStyles } from "@mui/styles";
 
-export const getClasses = makeStyles(({ breakpoints }: Theme) => ({
+export const getClasses = makeStyles(({ breakpoints, palette }: Theme) => ({
     formContainer: {
         width: '40vw',
         [breakpoints.down('md')]: {
@@ -9,7 +9,12 @@ export const getClasses = makeStyles(({ breakpoints }: Theme) => ({
         }
     },
     emailInput: {
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        borderRadius: 5
+    },
+    emailErrorMessage: {
+        color: palette.error.main,
+        margin: 5
     },
     signupButton: {
         [breakpoints.down('md')]: {
