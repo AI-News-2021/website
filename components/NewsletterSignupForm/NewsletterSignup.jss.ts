@@ -3,6 +3,7 @@ import { makeStyles } from "@mui/styles";
 
 export const getClasses = makeStyles(({ breakpoints, palette }: Theme) => ({
     formContainer: {
+        marginTop: '2em',
         width: '40vw',
         [breakpoints.down('md')]: {
             width: '80vw'
@@ -18,7 +19,7 @@ export const getClasses = makeStyles(({ breakpoints, palette }: Theme) => ({
     },
     signupButton: {
         [breakpoints.down('md')]: {
-            marginTop: '15px',
+            marginTop: '10px',
             width: '80vw'
         }
     },

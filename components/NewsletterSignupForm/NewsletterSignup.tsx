@@ -52,7 +52,7 @@ const NewsletterSignup = ({ onSuccess }: { onSuccess: () => void }) => {
     }
 
     const SignupButton = () => (
-        <Button variant={'contained'} color={'primary'} onClick={handleSignupButtonClick} disabled={state.isLoading} disableElevation={!isMobile}>
+        <Button variant={'contained'} color={'primary'} className={classes.signupButton} onClick={handleSignupButtonClick} disabled={state.isLoading} disableElevation={!isMobile}>
             {state.isLoading ? <CircularProgress style={{ width: 30, height: 30 }} /> : 'Signup'}
         </Button>
     )
