@@ -1,4 +1,4 @@
-import { Button, FormControl, InputAdornment, TextField, useMediaQuery } from '@mui/material';
+import { Button, CircularProgress, FormControl, InputAdornment, TextField, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react'
 import { isEmail } from '../../functions/isEmail';
 import theme from '../../theme';
@@ -23,7 +23,7 @@ const NewsletterSignup = () => {
 
     const handleSignupButtonClick = async (evt: any) => {
         if(isEmail(state.email)) {
-            setState((currentState) => ({...currentState, hasError: false}))
+            setState((currentState) => ({...currentState, hasError: false, isLoading: true}))
             
             // Send a request to our API to signup for newsletter
             const res = await fetch('/api/subscribe', {
@@ -37,7 +37,7 @@ const NewsletterSignup = () => {
             })
 
             const { error } = await res.json();
-            setState((currentState) => ({...currentState, isSuccessful: true}))
+            setState((currentState) => ({...currentState, isSuccessful: true, isLoading: false }))
         } else {
             setState((currentState) => ({...currentState, hasError: true}))
         }
@@ -47,6 +47,12 @@ const NewsletterSignup = () => {
         const value = evt.target.value
         setState((currentState) => ({...currentState, email: value}))
     }
+
+    const SignupButton = () => (
+        <Button variant={'contained'} color={'primary'} onClick={handleSignupButtonClick} disabled={state.isLoading} disableElevation={!isMobile}>
+            {state.isLoading ? <CircularProgress style={{ width: 30, height: 30 }} /> : 'Signup'}
+        </Button>
+    )
 
     return (
         <div className={classes.formContainer}>
@@ -61,16 +67,17 @@ const NewsletterSignup = () => {
                     value={state.email}
                     onChange={onEmailChange}
                     error={state.hasError}
+                    disabled={state.isLoading}
                     InputProps={{ 
                         endAdornment: isMobile ? false : 
                             (<InputAdornment position={'end'}>
-                                <Button variant={'contained'} color={'primary'} onClick={handleSignupButtonClick} disableElevation>Signup</Button>
+                                <SignupButton />
                             </InputAdornment>)
                     }}
                 />
                 {state.hasError ? <p className={classes.emailErrorMessage}>Please enter a valid E-Mail.</p> : ''}
                 {isMobile ? (
-                    <Button variant={'contained'} color={'primary'} className={classes.signupButton} onClick={handleSignupButtonClick}>Signup</Button>
+                    <SignupButton />
                 ) : false}
             </FormControl>
             )}
