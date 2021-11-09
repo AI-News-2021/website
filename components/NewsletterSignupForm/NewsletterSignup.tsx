@@ -21,10 +21,22 @@ const NewsletterSignup = () => {
         email: ''
     });
 
-    const handleSignupButtonClick = (evt: any) => {
+    const handleSignupButtonClick = async (evt: any) => {
         if(isEmail(state.email)) {
             setState((currentState) => ({...currentState, hasError: false}))
-            // TODO: Signup for newsletter and open survey
+            
+            // Send a request to our API to signup for newsletter
+            const res = await fetch('/api/subscribe', {
+                body: JSON.stringify({
+                    email: state.email
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST'
+            })
+
+            const { error } = await res.json();
             setState((currentState) => ({...currentState, isSuccessful: true}))
         } else {
             setState((currentState) => ({...currentState, hasError: true}))

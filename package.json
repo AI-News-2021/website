@@ -10,6 +10,7 @@
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
+    "@mailchimp/mailchimp_marketing": "^3.0.72",
     "@mui/material": "^5.1.0",
     "@mui/styles": "^5.1.0",
     "add": "^2.0.6",
@@ -19,6 +20,7 @@
     "yarn": "^1.22.17"
   },
   "devDependencies": {
+    "@types/mailchimp__mailchimp_marketing": "^3.0.2",
     "@types/node": "16.11.6",
     "@types/react": "17.0.34",
     "eslint": "7",
