@@ -23,14 +23,13 @@ const NewsletterSignup = ({ onSuccess }: { onSuccess: () => void }) => {
     });
 
     const handleSignupButtonClick = async (evt: any) => {
-        if(isEmail(state.email)) {
+        const email = state.email.trim()
+        if(isEmail(email)) {
             setState((currentState) => ({...currentState, hasError: false, isLoading: true}))
             
             // Send a request to our API to signup for newsletter
             const res = await fetch('/api/subscribe', {
-                body: JSON.stringify({
-                    email: state.email
-                }),
+                body: JSON.stringify({ email }),
                 headers: {
                     'Content-Type': 'application/json'
                 },
