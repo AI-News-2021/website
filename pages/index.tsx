@@ -7,6 +7,7 @@ import LandingPageLogo from '../components/LandingPageLogo/LandingPageLogo'
 import { getClasses } from '../styles/IndexPage.jss'
 import SurveyModal from '../components/SurveyModal/SurveyModal'
 import { useIsMobile } from '../hooks/useIsMobile'
+import SocialmediaButtons from '../components/SocialmediaButtons/SocialmediaButtons'
 
 interface IIndexPageState {
   surveyModalOpen: boolean
@@ -51,6 +52,7 @@ const Home: NextPage = () => {
           {/* Signup form */}
           <NewsletterSignup onSuccess={handleSuccess} />
           <SurveyModal open={state.surveyModalOpen} handleClose={handleModalClose} />
+          <SocialmediaButtons />
         </div>
       </main>
 
